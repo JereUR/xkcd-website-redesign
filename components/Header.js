@@ -19,11 +19,7 @@ export function Header() {
             </Text>
           </Container>
         </Navbar.Brand>
-        <Navbar.Content
-          activeColor="neutral"
-          hideIn="xs"
-          variant="highlight-solid"
-        >
+        <Navbar.Content activeColor="secondary" hideIn="xs" variant="underline">
           <Navbar.Link isActive={router.pathname === '/'} href="/">
             <Text size={18} weight={'medium'}>
               Home

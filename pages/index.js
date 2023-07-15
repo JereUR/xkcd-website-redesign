@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import { Card, Container, Row, Text } from '@nextui-org/react'
+import Link from 'next/link'
+import { Container, Grid, Text } from '@nextui-org/react'
+import Image from 'next/image'
 import fs from 'fs/promises'
 
 import { Header } from '../components/Header'
@@ -14,19 +16,36 @@ export default function Home({ latestComics }) {
       </Head>
       <Header />
       <main>
-        <Container>
-          <Card css={{ $$cardColor: '$colors$primary' }}>
-            <Card.Body>
-              <Row justify="center" align="center">
-                <Text h6 size={15} color="white" css={{ m: 0 }}>
-                  NextUI gives you the best developer experience with all the
-                  features you need for building beautiful and modern websites
-                  and applications.
-                </Text>
-              </Row>
-            </Card.Body>
-          </Card>
-        </Container>
+        <Text h2 weight={'bold'} css={{ textAlign: 'center' }}>
+          Latest Comics
+        </Text>
+        <Grid.Container gap={4} span={6}>
+          {latestComics.map((comic) => {
+            return (
+              <Grid key={comic.id} css={{ margin: 'auto' }}>
+                <Link href={`/comic/${comic.id}`}>
+                  <Text
+                    weight={'semibold'}
+                    size={'$lg'}
+                    css={{ textAlign: 'center' }}
+                  >
+                    {comic.title}
+                  </Text>
+                  <Container css={{ margin: 'auto' }}>
+                    <Image
+                      src={comic.img}
+                      alt={comic.alt}
+                      width="300"
+                      height="300"
+                      layout="intrinsic"
+                      objectFit="contain"
+                    />
+                  </Container>
+                </Link>
+              </Grid>
+            )
+          })}
+        </Grid.Container>
       </main>
     </div>
   )
@@ -42,7 +61,6 @@ export async function getStaticProps(context) {
   })
 
   const latestComics = await Promise.all(promisesReadFiles)
-  console.log(latestComics)
 
   return {
     props: {
