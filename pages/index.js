@@ -19,27 +19,51 @@ export default function Home({ latestComics }) {
         <Text h2 weight={'bold'} css={{ textAlign: 'center' }}>
           Latest Comics
         </Text>
-        <Grid.Container gap={4} span={6}>
+        <Grid.Container gap={2} span={6}>
           {latestComics.map((comic) => {
             return (
               <Grid key={comic.id} css={{ margin: 'auto' }}>
                 <Link href={`/comic/${comic.id}`}>
-                  <Text
-                    weight={'semibold'}
-                    size={'$lg'}
-                    css={{ textAlign: 'center' }}
+                  <Container
+                    css={{
+                      margin: 'auto',
+                      display: 'grid',
+                      placeItems: 'center',
+                      height: ' 500px',
+                      gap: 2
+                    }}
                   >
-                    {comic.title}
-                  </Text>
-                  <Container css={{ margin: 'auto' }}>
-                    <Image
-                      src={comic.img}
-                      alt={comic.alt}
-                      width="300"
-                      height="300"
-                      layout="intrinsic"
-                      objectFit="contain"
-                    />
+                    <Text
+                      weight={'semibold'}
+                      size={'$lg'}
+                      css={{ textAlign: 'center' }}
+                    >
+                      {comic.title}
+                    </Text>
+                    <Container
+                      css={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        placeItems: 'center',
+                        textAlign: 'center',
+                        height: '500px'
+                      }}
+                    >
+                      <Image
+                        src={comic.img}
+                        alt={comic.alt}
+                        width={300}
+                        height={300}
+                        layout="intrinsic"
+                        objectFit="contain"
+                        style={{
+                          maxHeight: '100%',
+                          maxWidth: '100%',
+                          gridColumn: '1 / span 2',
+                          justifySelf: 'center'
+                        }}
+                      />
+                    </Container>
                   </Container>
                 </Link>
               </Grid>
