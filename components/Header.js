@@ -1,42 +1,30 @@
-import { Text, Navbar, useTheme, Container } from '@nextui-org/react'
-import { Layout } from './Layout'
-import { useRouter } from 'next/router'
+import { Link } from '@nextui-org/react'
 
 export function Header() {
-  const { isDark } = useTheme()
-  const router = useRouter()
-
   return (
-    <Layout>
-      <Navbar isBordered={isDark} variant="sticky" shouldHideOnScroll>
-        <Navbar.Brand>
-          <Container display="inline-flex">
-            <Text component="span" color="inherit" weight={'bold'} size={30}>
-              New
-            </Text>
-            <Text component="span" color="inherit" size={32} weight={'light'}>
-              xkcd
-            </Text>
-          </Container>
-        </Navbar.Brand>
-        <Navbar.Content activeColor="secondary" hideIn="xs" variant="underline">
-          <Navbar.Link isActive={router.pathname === '/'} href="/">
-            <Text size={18} weight={'medium'}>
+    <header className="flex justify-between items-center p-4 max-w-xl m-auto">
+      <h1 className="font-bold text-3xl">
+        new<span className="font-light text-2xl">xkcd</span>
+      </h1>
+      <nav>
+        <ul className="flex flex-row gap-2">
+          <li>
+            <Link href="/" className="text-sm font-semibold text-black">
               Home
-            </Text>
-          </Navbar.Link>
-          <Navbar.Link isActive={router.pathname === '/about'} href="/about">
-            <Text size={18} weight={'medium'}>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="text-sm font-semibold text-black">
               About
-            </Text>
-          </Navbar.Link>
-          <Navbar.Link isActive={router.pathname === '/search'} href="/search">
-            <Text size={18} weight={'medium'}>
+            </Link>
+          </li>
+          <li>
+            <Link href="/search" className="text-sm font-semibold text-black">
               Search
-            </Text>
-          </Navbar.Link>
-        </Navbar.Content>
-      </Navbar>
-    </Layout>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
