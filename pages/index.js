@@ -8,10 +8,10 @@ import Image from 'next/image'
 
 export default function Home({ latestComics }) {
   return (
-    <div>
+    <>
       <Head>
-        <title>Newxkcd</title>
-        <meta name="description" content="The new design of xkcd website" />
+        <title>xkcd - Comics for developers</title>
+        <meta name="description" content="Comics for developers" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -28,10 +28,8 @@ export default function Home({ latestComics }) {
                   <Image
                     src={comic.img}
                     alt={comic.alt}
-                    width={300}
-                    height={300}
-                    layout="intrinsic"
-                    objectFit="contain"
+                    width={comic.width}
+                    height={comic.height}
                     priority
                   />
                 </a>
@@ -40,7 +38,7 @@ export default function Home({ latestComics }) {
           })}
         </section>
       </main>
-    </div>
+    </>
   )
 }
 
