@@ -9,17 +9,17 @@ export function Header() {
       <nav>
         <ul className="flex flex-row gap-2">
           <li>
-            <Link href="/" className="text-sm font-semibold text-black">
+            <Link href="/" className="text-sm font-bold text-black">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="text-sm font-semibold text-black">
+            <Link href="/about" className="text-sm font-bold text-black">
               About
             </Link>
           </li>
           <li>
-            <Link href="/search" className="text-sm font-semibold text-black">
+            <Link href="/search" className="text-sm font-bold text-black">
               Search
             </Link>
           </li>
