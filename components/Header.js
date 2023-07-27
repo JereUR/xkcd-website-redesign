@@ -16,11 +16,6 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="text-sm font-bold text-black">
-              About
-            </Link>
-          </li>
-          <li>
             <Link href="/search" className="text-sm font-bold text-black">
               Search
             </Link>
