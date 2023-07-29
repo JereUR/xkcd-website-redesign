@@ -5,18 +5,20 @@ export function Header() {
   const [results, setResults] = useState([])
   const searchRef = useRef()
 
-  const q = searchRef.current?.value
+  const getValue = () => searchRef.current?.value
 
   const handleChange = () => {
-    if (q.trim() === '') {
+    const q = getValue()
+    if (!q) {
       setResults([])
-    } else {
-      fetch(`/api/search?q=${q}`)
-        .then((res) => res.json())
-        .then((results) => {
-          setResults(results)
-        })
+      return
     }
+
+    fetch(`/api/search?q=${q}`)
+      .then((res) => res.json())
+      .then((results) => {
+        setResults(results)
+      })
   }
 
   return (
@@ -46,7 +48,7 @@ export function Header() {
                   <ul className="w-full border border-gray-50 rounded-lg shadow-xl bg-white overflow-hidden">
                     <li className="m-0" key="all-results">
                       <Link
-                        href={`/search?q=${q}`}
+                        href={`/search?q=${getValue()}`}
                         className="italic px-2 py-1 text-sm font-semibold hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap text-gray-400"
                       >
                         Ver {results.length} resultados
