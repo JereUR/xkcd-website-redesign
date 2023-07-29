@@ -47,7 +47,7 @@ export function Header() {
                     <li className="m-0" key="all-results">
                       <Link
                         href={`/search?q=${q}`}
-                        className="italic px-2 py-1 text-sm font-semibold text-black hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap text-gray-400"
+                        className="italic px-2 py-1 text-sm font-semibold hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap text-gray-400"
                       >
                         Ver {results.length} resultados
                       </Link>
