@@ -12,7 +12,7 @@ export default function Home({ latestComics }) {
   return (
     <>
       <Head>
-        <title>xkcd - Comics for developers</title>
+        <title>{t('SEO_DEFAULT_TITLE')}</title>
         <meta name="description" content="Comics for developers" />
       </Head>
 
