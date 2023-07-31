@@ -1,9 +1,11 @@
-import { Link } from '@nextui-org/react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 
 export function Header() {
   const [results, setResults] = useState([])
   const searchRef = useRef()
+  const { locale, locales } = useRouter()
 
   const getValue = () => searchRef.current?.value
 
@@ -21,18 +23,27 @@ export function Header() {
       })
   }
 
+  const restOfLocales = locales.filter((l) => l !== locale)
+
   return (
     <header className="flex justify-between items-center p-4 max-w-xl m-auto">
       <h1 className="font-bold text-3xl">
-        <Link href="/" className="text-black transition hover:opacity-80">
-          new<span className="font-light text-2xl">xkcd</span>
+        <Link href="/">
+          <a className="text-black transition hover:opacity-80">
+            new<span className="font-light text-2xl">xkcd</span>
+          </a>
         </Link>
       </h1>
       <nav>
         <ul className="flex flex-row gap-2">
           <li>
-            <Link href="/" className="text-sm font-bold text-black">
-              Home
+            <Link href="/">
+              <a className="text-sm font-bold text-black">Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/" locale={restOfLocales[0]}>
+              <a className="text-sm font-bold text-black">{restOfLocales[0]}</a>
             </Link>
           </li>
           <li>
