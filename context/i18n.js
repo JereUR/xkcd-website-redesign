@@ -12,8 +12,14 @@ export function I18NProvider({ children }) {
   const { locale } = useRouter()
 
   const t = useCallback(
-    (key) => {
-      return languages[locale][key]
+    (key, ...args) => {
+      let translation = languages[locale][key]
+      if (args.length === 0) return translation
+
+      args.forEach((value, index) => {
+        translation = translation.replace(`\${${index}}`, value)
+      })
+      return translation
     },
     [locale]
   )
