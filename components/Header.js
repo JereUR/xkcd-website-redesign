@@ -58,21 +58,19 @@ export function Header() {
                 <div className="absolute top-0 left-0">
                   <ul className="w-full border border-gray-50 rounded-lg shadow-xl bg-white overflow-hidden">
                     <li className="m-0" key="all-results">
-                      <Link
-                        href={`/search?q=${getValue()}`}
-                        className="italic px-2 py-1 text-sm font-semibold hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap text-gray-400"
-                      >
-                        Ver {results.length} resultados
+                      <Link href={`/search?q=${getValue()}`} passHref>
+                        <a className="italic px-2 py-1 text-sm font-semibold hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap text-gray-400">
+                          Ver {results.length} resultados
+                        </a>
                       </Link>
                     </li>
                     {results.map((result) => {
                       return (
                         <li className="m-0" key={result.id}>
-                          <Link
-                            href={`/comic/${result.id}`}
-                            className="px-2 py-1 text-sm font-semibold text-black hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap"
-                          >
-                            {result.title}
+                          <Link href={`/comic/${result.id}`} passHref>
+                            <a className="px-2 py-1 text-sm font-semibold text-black hover:bg-slate-200 w-full text-ellipsis whitespace-nowrap">
+                              {result.title}
+                            </a>
                           </Link>
                         </li>
                       )
