@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import Layout from 'components/Layout'
-import { useI18N } from 'context/i18n'
 import { search } from 'services/search'
+import { UseI18N } from 'context/i18n'
 
 export default function index({ query, results }) {
-  const { t } = useI18N()
+  const { t } = UseI18N()
 
   return (
     <>

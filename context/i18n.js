@@ -27,7 +27,7 @@ export function I18NProvider({ children }) {
   return <I18NContext.Provider value={{ t }}>{children}</I18NContext.Provider>
 }
 
-export function useI18N() {
+export function UseI18N() {
   const context = useContext(I18NContext)
 
   if (context === undefined) {
