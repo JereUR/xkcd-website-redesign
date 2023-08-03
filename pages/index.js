@@ -24,7 +24,7 @@ export default function Home({ latestComics }) {
           {latestComics.map((comic) => {
             return (
               <Link href={`/comic/${comic.id}`} key={comic.id}>
-                <a className="mb-4 pb-4 m-auto">
+                <a className="mb-4 pb-4 m-auto hover:scale-105 transition-transform duration-500">
                   <h3 className="font-bold text-md text-center pb-2">
                     {comic.title}
                   </h3>
