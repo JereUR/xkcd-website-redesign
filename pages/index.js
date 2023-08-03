@@ -4,10 +4,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from 'components/Layout'
-import { useI18N } from 'context/i18n'
+import { UseI18N } from 'context/i18n'
 
 export default function Home({ latestComics }) {
-  const { t } = useI18N()
+  const { t } = UseI18N()
 
   return (
     <>

@@ -31,7 +31,7 @@ export function UseI18N() {
   const context = useContext(I18NContext)
 
   if (context === undefined) {
-    throw new Error('useI18n must be used within an I18NProvider')
+    throw new Error('UseI18n must be used within an I18NProvider')
   }
 
   return context
